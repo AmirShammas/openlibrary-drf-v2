@@ -18,6 +18,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
+    # 3rdPartyApps
+    "rest_framework",
+
+    # MyApps
+    "scraper.apps.ScraperConfig",
 ]
 
 MIDDLEWARE = [
