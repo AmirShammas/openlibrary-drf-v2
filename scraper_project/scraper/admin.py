@@ -3,6 +3,11 @@ from django.contrib.admin import register
 from .models import Author, Book
 
 
+class BookInline(admin.StackedInline):
+    model = Book
+    extra = 0
+
+
 @register(Author)
 class AuthorAdmin(admin.ModelAdmin):
     list_display = ("id", "name", "url", "is_active",
@@ -11,6 +16,7 @@ class AuthorAdmin(admin.ModelAdmin):
     list_filter = ("is_active", "created_at", "updated_at")
     list_editable = ("is_active",)
     search_fields = ("name",)
+    inlines = (BookInline,)
 
 
 @register(Book)
